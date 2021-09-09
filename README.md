@@ -1,0 +1,2 @@
+# YeetEasy
+LeetCode practice (EASY)
