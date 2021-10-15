@@ -13,8 +13,7 @@ class Solution
 public:
     int mySqrt(int x)
     {
-        int a = sqrt(x);
-        return a;
+        return sqrt(x);
     }
 };
 // @lc code=end
