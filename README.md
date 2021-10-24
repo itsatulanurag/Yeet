@@ -1,2 +1,2 @@
-# YeetEasy
+# Yeet
 LeetCode practice (EASY)
