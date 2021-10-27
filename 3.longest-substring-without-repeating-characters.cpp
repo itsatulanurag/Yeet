@@ -12,6 +12,7 @@ class Solution
 public:
     int lengthOfLongestSubstring(string s)
     {
+        // sliding window bitch
         int left = 0, right = 0;
         int ans = 0;
         int chars[256] = {0};
