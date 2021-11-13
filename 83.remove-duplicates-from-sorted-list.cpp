@@ -15,11 +15,25 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
 public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        
+    ListNode *deleteDuplicates(ListNode *head)
+    {
+        ListNode *p = head, *q;
+        while (p != NULL && p->next != NULL)
+        {
+            q = p->next;
+            if (p->val == q->val)
+                p->next = q->next;
+            else
+                p = q;
+        }
+        return head;
     }
 };
 // @lc code=end
-
