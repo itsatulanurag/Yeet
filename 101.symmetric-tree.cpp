@@ -16,11 +16,24 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-    bool isSymmetric(TreeNode* root) {
-        
+    bool isSymmetric(TreeNode *root)
+    {
+        if (root == nullptr)
+            return 1;
+        return check(root->left, root->right);
+    }
+    bool check(TreeNode *p, TreeNode *q)
+    {
+        if (p == nullptr && q == nullptr)
+            return 1;
+        else if (p == nullptr || q == nullptr)
+            return 0;
+        else if (p->val != q->val)
+            return 0;
+        return check(p->left, q->right) && check(p->right, q->left);
     }
 };
 // @lc code=end
-
