@@ -17,11 +17,11 @@ public:
         for (auto x : s)
             if ((tolower(x) >= 97 && tolower(x) <= 122) || (x >= 48 && x <= 57))
                 str.push_back(tolower(x));
-        string strev = str;
-        reverse(strev.begin(), strev.end());
-        if (str.compare(strev) == 0)
-            return true;
-        return false;
+        int len = str.length();
+        for (int i = 0; i < len; i++)
+            if (str[i] != str[--len])
+                return false;
+        return true;
     }
 };
 // @lc code=end
