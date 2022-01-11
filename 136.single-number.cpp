@@ -13,15 +13,10 @@ class Solution
 public:
     int singleNumber(vector<int> &nums)
     {
-        sort(nums.begin(), nums.end());
-        int len = nums.size();
-        if (len < 2)
-            return nums[0];
-        else
-            for (int i = 0; i < len; i += 2)
-                if (nums[i] != nums[i + 1])
-                    return nums[i];
-        return 0;
+        int ans = 0;
+        for (int x : nums)
+            ans = ans ^ x;
+        return ans;
     }
 };
 // @lc code=end
