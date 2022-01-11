@@ -1,2 +1,3 @@
 # Yeet
-LeetCode practice (EASY)
+LeetCode practice
+
