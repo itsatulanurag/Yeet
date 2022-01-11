@@ -13,21 +13,25 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution
 {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)
     {
-        ListNode *temp;
-        while (headA != nullptr)
+        unordered_map<ListNode *, int> m;
+        while (headA)
         {
-            temp = headB;
-            while (temp != nullptr)
-                if (temp == headA)
-                    return headA;
-                else
-                    temp = temp->next;
+            m[headA]++;
             headA = headA->next;
+        }
+        while (headB)
+        {
+            if (m[headB] > 0)
+                return headB;
+            headB = headB->next;
         }
         return nullptr;
     }
