@@ -21,6 +21,7 @@ public:
             {
                 arr.push_back(i);
                 arr.push_back(m[target - nums[i]]);
+                break;
             }
             else
                 m[nums[i]] = i;
