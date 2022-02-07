@@ -20,21 +20,34 @@ class Solution
 public:
     ListNode *removeNthFromEnd(ListNode *head, int n)
     {
-        if (!head)
-            return nullptr;
-        ListNode *p = head;
-        ListNode *q = head;
-        while (n--)
-            p = p->next;
-        if (p == nullptr)
-            return head->next;
-        while (p->next != nullptr)
+        // if (!head)
+        //     return nullptr;
+        // ListNode *p = head;
+        // ListNode *q = head;
+        // while (n--)
+        //     p = p->next;
+        // if (p == nullptr)
+        //     return head->next;
+        // while (p->next != nullptr)
+        // {
+        //     p = p->next;
+        //     q = q->next;
+        // }
+        // q->next = q->next->next;
+        // return head;
+        ListNode *h = new ListNode(0);
+        h->next = head;
+        ListNode *fast = h;
+        ListNode *slow = h;
+        for (int i = 1; i <= n + 1; i++)
+            fast = fast->next;
+        while (fast != nullptr)
         {
-            p = p->next;
-            q = q->next;
+            slow = slow->next;
+            fast = fast->next;
         }
-        q->next = q->next->next;
-        return head;
+        slow->next = slow->next->next;
+        return h->next;
     }
 };
 // @lc code=end
