@@ -20,24 +20,44 @@ class Solution
 public:
     ListNode *rotateRight(ListNode *head, int k)
     {
-        if (!head || head->next == nullptr)
+        // if (!head || head->next == nullptr)
+        //     return head;
+        // ListNode *q = head;
+        // int len = 1;
+        // while (q->next != nullptr)
+        // {
+        //     len++;
+        //     q = q->next;
+        // }
+        // k = k % len;
+        // while (k--)
+        // {
+        //     ListNode *p = head;
+        //     while (p->next->next != nullptr)
+        //         p = p->next;
+        //     p->next->next = head;
+        //     head = p->next;
+        //     p->next = nullptr;
+        // }
+        // return head;
+        if (head == nullptr || head->next == nullptr)
             return head;
-        ListNode *q = head;
+        ListNode *sudo_head = head;
         int len = 1;
-        while (q->next != nullptr)
+        while (sudo_head->next != nullptr)
         {
             len++;
-            q = q->next;
+            sudo_head = sudo_head->next;
         }
-        k = k % len;
-        while (k--)
+        int n_trans = k % len;
+        while (n_trans--)
         {
-            ListNode *p = head;
-            while (p->next->next != nullptr)
-                p = p->next;
-            p->next->next = head;
-            head = p->next;
-            p->next = nullptr;
+            ListNode *temp_head = head;
+            while (temp_head->next->next != nullptr)
+                temp_head = temp_head->next;
+            temp_head->next->next = head;
+            head = temp_head->next;
+            temp_head->next = nullptr;
         }
         return head;
     }
