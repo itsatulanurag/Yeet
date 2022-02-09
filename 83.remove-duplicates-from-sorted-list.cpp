@@ -23,15 +23,27 @@ class Solution
 {
 public:
     ListNode *deleteDuplicates(ListNode *head)
+    // {
+    //     ListNode *p = head, *q;
+    //     while (p != NULL && p->next != NULL)
+    //     {
+    //         q = p->next;
+    //         if (p->val == q->val)
+    //             p->next = q->next;
+    //         else
+    //             p = q;
+    //     }
+    //     return head;
+    // }
     {
-        ListNode *p = head, *q;
-        while (p != NULL && p->next != NULL)
+        ListNode *prev = head, *curr;
+        while (prev != nullptr && prev->next != nullptr)
         {
-            q = p->next;
-            if (p->val == q->val)
-                p->next = q->next;
+            curr = prev->next;
+            if (prev->val == curr->val)
+                prev->next = curr->next;
             else
-                p = q;
+                prev = curr;
         }
         return head;
     }
