@@ -15,39 +15,28 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution
 {
 public:
     ListNode *removeNthFromEnd(ListNode *head, int n)
     {
-        // if (!head)
-        //     return nullptr;
-        // ListNode *p = head;
-        // ListNode *q = head;
-        // while (n--)
-        //     p = p->next;
-        // if (p == nullptr)
-        //     return head->next;
-        // while (p->next != nullptr)
-        // {
-        //     p = p->next;
-        //     q = q->next;
-        // }
-        // q->next = q->next->next;
-        // return head;
-        ListNode *h = new ListNode(0);
-        h->next = head;
-        ListNode *fast = h;
-        ListNode *slow = h;
-        for (int i = 1; i <= n + 1; i++)
-            fast = fast->next;
-        while (fast != nullptr)
+        ListNode *false_head=new ListNode(0);
+        false_head->next=head;
+        ListNode *slow_ptr=false_head;
+        ListNode *fast_ptr=false_head;
+
+        for(int i=0; i<n+1;i++)
+            fast_ptr=fast_ptr->next;
+        while(fast_ptr!=nullptr)
         {
-            slow = slow->next;
-            fast = fast->next;
+            slow_ptr=slow_ptr->next;
+            fast_ptr=fast_ptr->next;
         }
-        slow->next = slow->next->next;
-        return h->next;
+        slow_ptr->next=slow_ptr->next->next;
+        return false_head->next;
     }
 };
 // @lc code=end

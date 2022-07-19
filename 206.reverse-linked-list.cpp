@@ -22,7 +22,7 @@ public:
     {
         ListNode *p = nullptr;
         ListNode *q = nullptr;
-        while (head != nullptr)
+        while (head)
         {
             p = head;
             head = head->next;
